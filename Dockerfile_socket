@@ -1,0 +1,8 @@
+FROM php:7.4-apache
+RUN apt-get update && \
+      apt-get install libldap2-dev libpng-dev zlib1g-dev vim -y && \
+      docker-php-ext-install mysqli && \
+      docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu/ && \
+      docker-php-ext-install ldap && \
+      docker-php-ext-install gd
+RUN a2enmod rewrite
