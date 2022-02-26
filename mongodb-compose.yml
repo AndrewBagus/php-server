@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  mongodb:
+    image : mongo
+    container_name: mongodb
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - /home/mawmaw/Kerja/document/databases/mongodb:/data/db
+    ports:
+      - 27017:27017
+    restart: unless-stopped
+
+networks:
+  default:
+    external:
+      name: db-network
