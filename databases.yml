@@ -8,7 +8,7 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - ~/apps/mysql:/var/lib/mysql
+      - /home/mawmaw/Kerja/document/databases/mysql:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=Megaron08
     networks:
@@ -30,6 +30,7 @@ services:
   mongodb:
     image : mongo
     container_name: mongodb
+    restart: unless-stopped
     environment:
       - PUID=1000
       - PGID=1000
@@ -37,7 +38,6 @@ services:
       - /home/mawmaw/Kerja/document/databases/mongodb:/data/db
     ports:
       - 27017:27017
-    restart: unless-stopped
     networks:
       - db-network
 
