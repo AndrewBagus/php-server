@@ -2,24 +2,18 @@ version: "3.7"
 
 services:
   php-server5:
-    container_name: php-server5
-    image: php-server5:6.0
+    image: bagoesandrew/php-server:5.6
+    container_name: php-server-5.6
     restart: always
-    build:
-      context: .
-      dockerfile: ./Dockerfile_php-5
     ports:
       - "8081:80"
     volumes:
       - /home/mawmaw/Kerja/apps/php/wasco:/var/www/html
 
   php-server7:
-    container_name: php-server7
-    image: php-server7:4.0
+    image: bagoesandrew/php-server:7.4
+    container_name: php-server-7.4
     restart: always
-    build:
-      context: .
-      dockerfile: ./Dockerfile_php-7
     ports:
       - "80:80"
     volumes:
@@ -27,5 +21,5 @@ services:
 
 networks:
   default:
-    external:
-      name: db-network
+   name: db-network
+   external: true

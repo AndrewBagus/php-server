@@ -50,6 +50,7 @@ services:
       ADMINER_DESIGN: nette
     volumes:
       # - /home/mawmaw/Kerja/document/dockerfiles/adminer_plugins/designs.php:/var/www/html/plugins-enabled/designs.php
+      - /home/mawmaw/Kerja/document/dockerfiles/adminer_plugins/upload.ini:/usr/local/etc/php/conf.d/uploads.ini
       - /home/mawmaw/Kerja/document/dockerfiles/adminer_plugins/arcs-material.css:/var/www/html/designs/arcs-material/adminer.css
     ports:
       - 7070:8080
