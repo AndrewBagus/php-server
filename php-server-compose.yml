@@ -5,7 +5,6 @@ services:
     container_name: php-server5
     image: php-server5:6.0
     restart: always
-
     build:
       context: .
       dockerfile: ./Dockerfile_php-5
@@ -18,7 +17,6 @@ services:
     container_name: php-server7
     image: php-server7:4.0
     restart: always
-
     build:
       context: .
       dockerfile: ./Dockerfile_php-7

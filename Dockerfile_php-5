@@ -14,15 +14,15 @@ RUN BEFORE_PWD=$(pwd) \
     && cd "${BEFORE_PWD}" \
     && rm -r /opt/xdebug
 RUN docker-php-ext-enable xdebug
-RUN apt-get update && \
-    apt-get install -y libpq-dev
-RUN apt-get install -y libldap2-dev
-RUN apt-get install -y libxml2-dev
-RUN apt-get install -y vim
-RUN apt-get install -y libmcrypt-dev
-RUN apt-get install -y libpng-dev
-RUN apt-get install -y zlib1g-dev
-RUN apt-get install -y libjpeg-dev
+RUN apt-get update -y
+RUN apt-get update -y && apt-get install -y libpq-dev
+RUN apt-get update -y && apt-get install -y libldap2-dev
+RUN apt-get update -y && apt-get install -y libxml2-dev
+RUN apt-get update -y && apt-get install -y vim
+RUN apt-get update -y && apt-get install -y libmcrypt-dev
+RUN apt-get update -y && apt-get install -y libpng-dev
+RUN apt-get update -y && apt-get install -y zlib1g-dev
+RUN apt-get update -y && apt-get install -y libjpeg-dev
 
 RUN rm -rf /var/lib/apt/lists/*
 RUN docker-php-ext-install mysql && \
