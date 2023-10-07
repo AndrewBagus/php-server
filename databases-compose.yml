@@ -41,6 +41,18 @@ services:
     networks:
       - db-network
 
+  redis:
+    image: redis:7.2-alpine
+    container_name: redis
+    restart: always
+    ports:
+      - '6379:6379'
+    command: redis-server --save 20 1 --loglevel warning --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81
+    volumes: 
+      - /home/mawmaw/Kerja/document/databases/redis:/data
+    networks:
+      - db-network
+
   adminer:
     image: adminer
     container_name: adminer
