@@ -1,16 +1,22 @@
-version: '2'
+version: "3.8"
 services:
   kanboard:
     image: kanboard/kanboard:latest
     restart: always
     ports:
-      - '7071:80'
-      - '443:443'
+      - "7071:80"
+      - "443:443"
     volumes:
-      - kanboard_data:/var/www/app/data
-      - kanboard_plugins:/var/www/app/plugins
-      - kanboard_ssl:/etc/nginx/ssl
-volumes:
-  kanboard_data:
-  kanboard_plugins:
-  kanboard_ssl:
+      - /home/mawmaw/Kerja/document/kanboard/data:/var/www/app/data
+      - /home/mawmaw/Kerja/document/kanboard/plugins:/var/www/app/plugins
+      - /home/mawmaw/Kerja/document/kanboard/ssl:/etc/nginx/ssl
+    environment:
+      - DATABASE_HOST=wasco-mysql
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=Megaron08
+      - DATABASE_NAME=kanboard
+
+networks:
+  default:
+    name: db-network
+    external: true
