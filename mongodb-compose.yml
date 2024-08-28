@@ -7,6 +7,8 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
+      # - MONGO_INITDB_ROOT_USERNAME=root
+      # - MONGO_INITDB_ROOT_PASSWORD=ma235461
     volumes:
       - /home/mawmaw/Kerja/document/databases/mongodb:/data/db
     ports:

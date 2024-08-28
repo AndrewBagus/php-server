@@ -15,6 +15,7 @@ RUN docker-php-ext-install mysqli && \
     docker-php-ext-configure ldap --with-libdir=lib/x86_64-linux-gnu/ && \
     docker-php-ext-install ldap && \
     docker-php-ext-install soap && \
+    docker-php-ext-install gd && \
     docker-php-ext-enable mcrypt && \
     docker-php-ext-enable gd && \
     docker-php-ext-enable xdebug

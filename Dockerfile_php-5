@@ -14,14 +14,7 @@ RUN BEFORE_PWD=$(pwd) \
     && rm -r /opt/xdebug
 RUN docker-php-ext-enable xdebug
 RUN apt-get update
-RUN apt-get install -y libpq-dev
-RUN apt-get install -y libldap2-dev
-RUN apt-get install -y libxml2-dev
-RUN apt-get install -y vim
 RUN apt-get install -y libmcrypt-dev
-RUN apt-get install -y libpng-dev
-RUN apt-get install -y zlib1g-dev
-RUN apt-get install -y libjpeg-dev
 
 RUN rm -rf /var/lib/apt/lists/*
 RUN docker-php-ext-install mysql && \
@@ -29,8 +22,18 @@ RUN docker-php-ext-install mysql && \
     docker-php-ext-install ldap && \
     docker-php-ext-install soap && \
     docker-php-ext-install mcrypt && \
+    docker-php-ext-install calendar && \
+    docker-php-ext-install zip && \
     docker-php-ext-configure gd --with-jpeg-dir=/usr/lib && \
     docker-php-ext-install gd
+
+RUN apt-get install -y libpq-dev
+RUN apt-get install -y libldap2-dev
+RUN apt-get install -y libxml2-dev
+RUN apt-get install -y vim
+RUN apt-get install -y libpng-dev
+RUN apt-get install -y zlib1g-dev
+RUN apt-get install -y libjpeg-dev
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN echo "xdebug.remote_enable=1" >> /usr/local/etc/php/php.ini

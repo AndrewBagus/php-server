@@ -3,7 +3,7 @@ version: "3.7"
 services:
   php-server5:
     container_name: php-server5
-    image: php-server5:1.0
+    image: php-server5:6.0
     restart: always
 
     build:

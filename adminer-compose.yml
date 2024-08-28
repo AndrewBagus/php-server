@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  adminer:
+    image: adminer
+    # build: 
+    #   dockerfile: ./Dockerfile_adminer_with_mongo
+    container_name: adminer
+    restart: unless-stopped
+    environment:
+      ADMINER_PLUGINS: tables-filter dump-json edit-calendar edit-textarea sql-log
+      ADMINER_DESIGN: nette
+    volumes:
+      - /home/mawmaw/Kerja/document/dockerfiles/adminer_plugins/index.php:/var/www/html/index.php
+      - /home/mawmaw/Kerja/document/dockerfiles/adminer_plugins/server.php:/var/www/html/server.php
+      - /home/mawmaw/Kerja/document/dockerfiles/adminer_plugins/oneclick-login.php:/var/www/html/plugins/oneclick-login.php
+      # - /home/mawmaw/Kerja/document/dockerfiles/adminer_plugins/plugin.php:/var/www/html/plugins/plugin.php
+      # - /home/mawmaw/Kerja/document/dockerfiles/adminer_plugins/login-password-less.php:/var/www/html/plugins/login-password-less.php
+      - /home/mawmaw/Kerja/document/dockerfiles/adminer_plugins/upload.ini:/etc/php/7.4/cli/conf.d/0-upload_large_dumps.ini
+      - /home/mawmaw/Kerja/document/dockerfiles/adminer_plugins/arcs-material.css:/var/www/html/designs/arcs-material/adminer.css
+      - /home/mawmaw/Kerja/document/dockerfiles/adminer_plugins/adminer-bootstrap-like/src/AdminerBootstrapLike.php:/var/www/html/AdminerBootstrapLike.php
+      - /home/mawmaw/Kerja/document/dockerfiles/adminer_plugins/adminer-bootstrap-like/vendor:/var/www/html/vendor
+      - /home/mawmaw/Kerja/document/dockerfiles/adminer_plugins/adminer-bootstrap-like/public/assets:/var/www/html/assets
+    ports:
+      - 7070:8080
+
+networks:
+  default:
+    name: db-network
+    external: true
