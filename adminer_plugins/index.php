@@ -3,8 +3,6 @@ require './vendor/autoload.php';
 
 function adminer_object()
 {
-    // require_once('./plugins/plugin.php');
-    // require_once('./plugins/login-password-less.php');
     require_once('./plugins/database-hide.php');
     require_once('./plugins/oneclick-login.php');
     require_once('./AdminerBootstrapLike.php');
@@ -32,10 +30,8 @@ function adminer_object()
         new AdminerTablesFilter(),
         new AdminerDumpJson(),
         new AdminerLoginPasswordLess("Megaron08")
-        // new AdminerLoginPasswordLess(password_hash("Megaron08", PASSWORD_DEFAULT))
     ];
 
-    // return new AdminerBootstrapLike($plugins, true);
     return new AdminerPlugin($plugins);
 }
 include './adminer.php';
